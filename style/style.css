@@ -87,8 +87,7 @@ a {
   margin-bottom: 20px;
   left: -70px;
   width: auto;
-  margin-right: auto;
-  display: block;
+  display: grid;
   box-sizing: border-box;
 }
 .col {

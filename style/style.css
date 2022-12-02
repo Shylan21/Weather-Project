@@ -10,6 +10,7 @@ body {
 
 .btn {
   background-color: skyblue;
+  margin-left: 25px;
 }
 .border {
   border-radius: 20px;
@@ -90,4 +91,17 @@ a {
 }
 hr {
   margin: auto;
+}
+
+.github-link,
+.creator {
+  display: block;
+  margin: auto;
+  padding: auto;
+  text-align: center;
+  font-size: medium;
+  font-weight: 300;
+}
+.github-link {
+  color: rgb(5, 135, 186);
 }

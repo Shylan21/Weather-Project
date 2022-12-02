@@ -7,6 +7,45 @@ body {
   display: block;
   margin: 10px;
 }
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+h1 {
+  font-size: 100px;
+}
+h2 {
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 25px;
+  margin-bottom: -100px;
+}
+li {
+  position: relative;
+  top: -40px;
+  bottom: 250px;
+  right: 50px;
+  text-align: right;
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+hr {
+  margin: auto;
+}
+
+.border {
+  border-radius: 25px;
+  display: block;
+  margin: 90px auto;
+  max-width: 900px;
+  padding: 20px 16px 24px 16px;
+}
 .search-bar {
   display: block;
   margin: 30px auto;
@@ -25,29 +64,6 @@ body {
   margin-right: auto;
   margin: fixed;
 }
-.border {
-  border-radius: 25px;
-  display: block;
-  margin: 90px auto;
-  max-width: 900px;
-}
-h1,
-h2,
-h3 {
-  text-align: center;
-}
-h1 {
-  font-size: 100px;
-}
-h2 {
-  font-size: 30px;
-  text-transform: capitalize;
-}
-
-h3 {
-  font-size: 25px;
-  margin-bottom: -100px;
-}
 
 #min {
   font-size: 25px;
@@ -65,22 +81,13 @@ h3 {
   float: left;
   bottom: 250px;
 }
-li {
-  position: relative;
-  top: -40px;
-  bottom: 250px;
-  right: 50px;
-  text-align: right;
-  list-style-type: none;
-}
+
 .btn-group {
   display: inline-flex;
   position: relative;
   bottom: 50px;
 }
-a {
-  text-decoration: none;
-}
+
 .week {
   margin-top: 10px;
   position: relative;
@@ -102,9 +109,6 @@ a {
   font-size: 30px;
   text-align: center;
   margin-top: 10px;
-}
-hr {
-  margin: auto;
 }
 
 .github-link,

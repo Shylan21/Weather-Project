@@ -3,8 +3,9 @@ body {
   font-weight: 400;
   line-height: 20px;
   background-color: whitesmoke;
-  width: 100%;
-  height: 100%;
+
+  display: block;
+  margin: 10px;
 }
 .search-bar {
   display: block;
@@ -27,7 +28,7 @@ body {
 .border {
   border-radius: 25px;
   display: block;
-  margin: 130px auto;
+  margin: 90px auto;
   max-width: 900px;
 }
 h1,
@@ -85,8 +86,10 @@ a {
   position: relative;
   margin-bottom: 20px;
   left: -70px;
-  width: 890px;
-  margin-right: 50px;
+  width: auto;
+  margin-right: auto;
+  display: block;
+  box-sizing: border-box;
 }
 .col {
   padding-right: 12px;

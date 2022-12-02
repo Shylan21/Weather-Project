@@ -2,6 +2,7 @@ body {
   font-family: "New Tegomin", serif;
   font-weight: 400;
   line-height: 20px;
+  background-color: whitesmoke;
 }
 .search-bar {
   display: block;

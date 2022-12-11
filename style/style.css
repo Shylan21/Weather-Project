@@ -2,7 +2,7 @@ body {
   font-family: "New Tegomin", serif;
   font-weight: 400;
   line-height: 20px;
-  background-color: whitesmoke;
+  background-color: rgb(240, 236, 236);
   display: block;
   margin: 10px;
 }
@@ -43,7 +43,9 @@ hr {
   display: block;
   margin: 90px auto;
   max-width: 900px;
-  padding: 20px 16px 24px 16px;
+  padding: 30px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  background: rgb(248, 245, 239);
 }
 .search-bar {
   display: block;

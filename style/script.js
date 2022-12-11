@@ -27,17 +27,18 @@ let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
 function search(city) {
-  let apiKey = "5293d8454b519c30f6f6331f38c85b4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "0co6f665befca7taef26af3653b7a034";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weatherCondition);
 }
 
 function searchLocation(position) {
-  let apiKey = "5293d8454b519c30f6f6331f38c85b4c";
-  let lon = position.coords.longitude;
-  let lat = position.coords.latitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "0co6f665befca7taef26af3653b7a034";
+  let lon = position.coordinates.longitude;
+  let lat = position.coordinates.latitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weatherCondition);
+  console.log(apiUrl);
 }
 
 function searchCity(event) {
@@ -47,26 +48,19 @@ function searchCity(event) {
 }
 
 function weatherCondition(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#min").innerHTML = `Min: ${Math.round(
-    response.data.main.temp_min
+    response.data.temperature
   )}°C`;
   document.querySelector("#max").innerHTML = `Max: ${Math.round(
-    response.data.main.temp_max
+    response.data.temperature
   )}°C`;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(response.wind.speed);
+  document.querySelector("#humidity").innerHTML = response.temperature.humidity;
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
-  document
-    .querySelector("#icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document.querySelector("alt", response.data.weather[0].description);
+    response.condition.description[0];
+  document.querySelector("#icon").setAttribute("src");
+  document.querySelector("alt", response.condition[0].description);
 }
 
 function currentLocation(event) {

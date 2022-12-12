@@ -50,17 +50,22 @@ function searchCity(event) {
 function weatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#min").innerHTML = `Min: ${Math.round(
-    response.data.temperature
+    response.data.temperature.current
   )}°C`;
   document.querySelector("#max").innerHTML = `Max: ${Math.round(
-    response.data.temperature
+    response.data.temperature.current
   )}°C`;
-  document.querySelector("#wind").innerHTML = Math.round(response.wind.speed);
-  document.querySelector("#humidity").innerHTML = response.temperature.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
   document.querySelector("#description").innerHTML =
-    response.condition.description[0];
-  document.querySelector("#icon").setAttribute("src");
-  document.querySelector("alt", response.condition[0].description);
+    response.data.condition.description;
+  document
+    .querySelector("#icon")
+    .setAttribute("src", response.data.condition.icon_url);
+  document.querySelector("alt", response.data.condition.description);
 }
 
 function currentLocation(event) {

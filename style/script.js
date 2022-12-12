@@ -34,11 +34,10 @@ function search(city) {
 
 function searchLocation(position) {
   let apiKey = "0co6f665befca7taef26af3653b7a034";
-  let lon = position.coordinates.longitude;
-  let lat = position.coordinates.latitude;
+  let lon = position.data.coordinates.longitude;
+  let lat = position.data.coordinates.latitude;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weatherCondition);
-  console.log(apiUrl);
 }
 
 function searchCity(event) {
@@ -49,11 +48,11 @@ function searchCity(event) {
 
 function weatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.city;
-  document.querySelector("#min").innerHTML = `Min: ${Math.round(
+  document.querySelector("#it-s").innerHTML = `It's: ${Math.round(
     response.data.temperature.current
   )}°C`;
-  document.querySelector("#max").innerHTML = `Max: ${Math.round(
-    response.data.temperature.current
+  document.querySelector("#feels-like").innerHTML = `Feels like: ${Math.round(
+    response.data.temperature.feels_like
   )}°C`;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -66,6 +65,9 @@ function weatherCondition(response) {
     .querySelector("#icon")
     .setAttribute("src", response.data.condition.icon_url);
   document.querySelector("alt", response.data.condition.description);
+
+  celsiusCurrentTemp = response.data.temperature.current;
+  celsiusFeelsTemp = response.data.temperature.feels_like;
 }
 
 function currentLocation(event) {
@@ -73,21 +75,34 @@ function currentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-// function convertToFahrenheit(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector(".min-max");
-//   temperatureElement.innerHTML = `66° / 75°`;
-// }
-// let fahrenheit = document.querySelector(".btn-group #fahrenheit");
-// fahrenheit.addEventListener("click", convertToFahrenheit);
-// function convertToCelsius(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector(".min-max");
-//   temperatureElement.innerHTML = `19° / 24°`;
-// }
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let currentTemperatureElement = document.querySelector("#it-s");
+  let fahrenheitCurrentTemp = (celsiusCurrentTemp * 9) / 5 + 32;
+  currentTemperatureElement.innerHTML = `It's: ${Math.round(
+    fahrenheitCurrentTemp
+  )} °F`;
+  let feelsTemp = document.querySelector("#feels-like");
+  let fahrenheitFeelsTemp = (celsiusFeelsTemp * 9) / 5 + 32;
+  feelsTemp.innerHTML = `Feels like: ${Math.round(fahrenheitFeelsTemp)} °F`;
+}
+let fahrenheit = document.querySelector(".btn-group #fahrenheit");
+fahrenheit.addEventListener("click", convertToFahrenheit);
 
-// let celsius = document.querySelector(".btn-group #celsius");
-// celsius.addEventListener("click", convertToCelsius);
+function convertToCelsius(event) {
+  event.preventDefault();
+  let currentTemperatureElement = document.querySelector("#it-s");
+  currentTemperatureElement.innerHTML = `It's: ${Math.round(
+    celsiusCurrentTemp
+  )}°C`;
+  let feelsTemperatureElement = document.querySelector("#feels-like");
+  feelsTemperatureElement.innerHTML = `Feels like:${Math.round(
+    celsiusFeelsTemp
+  )}°C`;
+}
+let celsiusTemp = null;
+let celsius = document.querySelector(".btn-group #celsius");
+celsius.addEventListener("click", convertToCelsius);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);

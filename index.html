@@ -20,7 +20,7 @@
     <div class="border border-success">
       <form class="search-form" id="search-form">
         <div class="row">
-          <div class="col-6">
+          <div class="col-9">
             <div class="input-group mb-3">
 
               <input type="search" class="form-control shadow-sm" placeholder="Search a city" autofocus="on"
@@ -29,8 +29,8 @@
               <div class="col-3">
                 <input class="btn btn-outline-primary shadow-sm" type="submit" value="search🔍" id="search-btn" />
               </div>
-              <div class="col-4">
-                <button class="btn btn-success w-100" id="current-location-button">
+              <div class="col-3">
+                <button class="btn btn-success w-80" id="current-location-button">
                   Current
                 </button>
               </div>
@@ -46,24 +46,17 @@
       </h2>
       <h3>
         <br />
-
       </h3>
       <ul>
-        <li>
-          Sunrise: <span id="sunrise"></span>
-        </li>
-        <li>
-          Sunset: <span id="sunset"></span>
-        </li>
         <li>
           Wind: <span id="wind"></span>km/h
         </li>
         <li>
           Humidity: <span id="humidity"></span>%
         </li>
-        <li>Description: <span id="description"></span></li>
+        <li> Description: <br /> <span id="description"></span>
+        </li>
       </ul>
-
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-primary" id="celsius">
           <a href="#">°C</a>
@@ -74,9 +67,9 @@
       </div>
       <br />
       <br />
-      <span id="min"></span>
+      <span id="it-s"></span>
       <br />
-      <span id="max"></span>
+      <span id="feels-like"></span>
       <div class="week">
         <div class="row" id="weekStyle">
           <div class="col">

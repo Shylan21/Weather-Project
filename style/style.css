@@ -2,10 +2,17 @@ body {
   font-family: "New Tegomin", serif;
   font-weight: 400;
   line-height: 20px;
-  background-color: rgb(240, 236, 236);
   display: block;
   margin: 10px;
+  background: linear-gradient(
+    111.1deg,
+    rgb(0, 40, 70) -4.8%,
+    rgb(255, 115, 115) 82.7%,
+    rgb(255, 175, 123) 97.2%
+  );
+  min-height: 100vh;
 }
+
 h1,
 h2,
 h3 {
@@ -46,10 +53,10 @@ hr {
   display: block;
   margin: 90px auto;
   margin-bottom: 20px;
-  max-width: 900px;
+  max-width: 800px;
   padding: 30px;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
-  background: rgb(248, 245, 239);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .search-bar {
@@ -122,6 +129,7 @@ hr {
   text-align: center;
   font-size: medium;
   font-weight: 300;
+  color: #fff;
 }
 .github-link {
   color: rgb(5, 135, 186);

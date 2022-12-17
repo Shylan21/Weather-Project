@@ -44,9 +44,6 @@ li {
 a {
   text-decoration: none;
 }
-hr {
-  margin: auto;
-}
 
 .border {
   border-radius: 25px;
@@ -90,7 +87,6 @@ hr {
   margin: 0;
   position: relative;
   top: -200px;
-  float: left;
   bottom: 250px;
 }
 
@@ -100,25 +96,21 @@ hr {
   bottom: 50px;
 }
 
-#weekStyle {
+.week-forecast {
   margin: 10px 0 20px 0;
-  position: relative;
-  width: auto;
-  box-sizing: border-box;
-  left: -85px;
+  text-align: center;
+}
+.date {
+  font-size: 20px;
+  line-height: normal;
+}
+
+.date-temp {
+  font-size: 17px;
 }
 .col {
   padding-right: 12px;
   margin: 12px auto;
-}
-.rain,
-.cloudy,
-.thunder,
-.sunny,
-.foggy {
-  font-size: 30px;
-  text-align: center;
-  margin-top: 10px;
 }
 
 .github-link,

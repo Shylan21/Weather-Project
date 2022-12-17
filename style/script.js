@@ -129,35 +129,35 @@ function currentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let currentTemperatureElement = document.querySelector("#it-s");
-  let fahrenheitCurrentTemp = (celsiusCurrentTemp * 9) / 5 + 32;
-  currentTemperatureElement.innerHTML = `It's: ${Math.round(
-    fahrenheitCurrentTemp
-  )} °F`;
-  let feelsTemp = document.querySelector("#feels-like");
-  let fahrenheitFeelsTemp = (celsiusFeelsTemp * 9) / 5 + 32;
-  feelsTemp.innerHTML = `Feels like: ${Math.round(fahrenheitFeelsTemp)} °F`;
-}
-let fahrenheit = document.querySelector(".btn-group #fahrenheit");
-fahrenheit.addEventListener("click", convertToFahrenheit);
+// function convertToFahrenheit(event) {
+//   event.preventDefault();
+//   let currentTemperatureElement = document.querySelector("#it-s");
+//   let fahrenheitCurrentTemp = (celsiusCurrentTemp * 9) / 5 + 32;
+//   currentTemperatureElement.innerHTML = `It's: ${Math.round(
+//     fahrenheitCurrentTemp
+//   )} °F`;
+//   let feelsTemp = document.querySelector("#feels-like");
+//   let fahrenheitFeelsTemp = (celsiusFeelsTemp * 9) / 5 + 32;
+//   feelsTemp.innerHTML = `Feels like: ${Math.round(fahrenheitFeelsTemp)} °F`;
+// }
+// let fahrenheit = document.querySelector(".btn-group #fahrenheit");
+// fahrenheit.addEventListener("click", convertToFahrenheit);
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let currentTemperatureElement = document.querySelector("#it-s");
-  currentTemperatureElement.innerHTML = `It's: ${Math.round(
-    celsiusCurrentTemp
-  )}°C`;
-  let feelsTemperatureElement = document.querySelector("#feels-like");
-  feelsTemperatureElement.innerHTML = `Feels like:${Math.round(
-    celsiusFeelsTemp
-  )}°C`;
-}
-let celsiusTemp = null;
+// function convertToCelsius(event) {
+//   event.preventDefault();
+//   let currentTemperatureElement = document.querySelector("#it-s");
+//   currentTemperatureElement.innerHTML = `It's: ${Math.round(
+//     celsiusCurrentTemp
+//   )}°C`;
+//   let feelsTemperatureElement = document.querySelector("#feels-like");
+//   feelsTemperatureElement.innerHTML = `Feels like:${Math.round(
+//     celsiusFeelsTemp
+//   )}°C`;
+// }
+// let celsiusTemp = null;
 
-let celsius = document.querySelector(".btn-group #celsius");
-celsius.addEventListener("click", convertToCelsius);
+// let celsius = document.querySelector(".btn-group #celsius");
+// celsius.addEventListener("click", convertToCelsius);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);

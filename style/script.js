@@ -29,7 +29,8 @@ function formatDate(today) {
   return `${day} ${date} <br/> ${hour}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -66,11 +67,11 @@ function search(city) {
 }
 
 function searchLocation(position) {
+  console.log(position);
   let apiKey = "0co6f665befca7taef26af3653b7a034";
-  let lon = position.data.coordinates.longitude;
-  let lat = position.data.coordinates.latitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(weatherCondition);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.longitude}&lat=${position.latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function searchCity(event) {
@@ -101,6 +102,8 @@ function weatherCondition(response) {
 
   celsiusCurrentTemp = response.data.temperature.current;
   celsiusFeelsTemp = response.data.temperature.feels_like;
+
+  searchLocation(response.data.coordinates);
 }
 
 function currentLocation(event) {
@@ -145,4 +148,3 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", currentLocation);
 
 search("Edinburgh");
-displayForecast();

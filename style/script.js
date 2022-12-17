@@ -1,5 +1,11 @@
 function formatDate(today) {
   let date = today.getDate();
+  // if (date < 20) {
+  //   date = `${date}th`;
+  // }
+  // if ((date = (((1 !== date) == 21) !== date) == 31)) {
+  //   date = `${date}st`;
+  // }
   let hour = today.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -8,6 +14,7 @@ function formatDate(today) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
   let dayIndex = [today.getDay()];
   let days = [
     "Sunday",
@@ -20,6 +27,32 @@ function formatDate(today) {
   ];
   let day = days[dayIndex];
   return `${day} ${date} <br/> ${hour}:${minutes}`;
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+            <div class="date">
+              ${day} 
+            </div>
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png" alt="" width="45" />
+            <div class="date-temp">
+              <span class="date-temp-max">18°</span><span class="date-temp-min">12°</span>
+            </div>
+          </div>
+         `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let dateElement = document.querySelector("h3");
@@ -101,6 +134,7 @@ function convertToCelsius(event) {
   )}°C`;
 }
 let celsiusTemp = null;
+
 let celsius = document.querySelector(".btn-group #celsius");
 celsius.addEventListener("click", convertToCelsius);
 
@@ -111,3 +145,4 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", currentLocation);
 
 search("Edinburgh");
+displayForecast();

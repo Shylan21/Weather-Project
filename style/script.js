@@ -28,27 +28,46 @@ function formatDate(today) {
   let day = days[dayIndex];
   return `${day} ${date} <br/> ${hour}:${minutes}`;
 }
-
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
             <div class="date">
-              ${day} 
+              ${formatDay(forecastDay.time)} 
             </div>
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png" alt="" width="45" />
+            <img src="${forecastDay.condition.icon_url}" alt="weather icon" />
             <div class="date-temp">
-              <span class="date-temp-max">18°</span><span class="date-temp-min">12°</span>
+              <span class="date-temp-max"> ${Math.round(
+                forecastDay.temperature.maximum
+              )}° </span><span class="date-temp-min"> ${Math.round(
+          forecastDay.temperature.minimum
+        )} °</span>
             </div>
           </div>
          `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -67,7 +86,6 @@ function search(city) {
 }
 
 function searchLocation(position) {
-  console.log(position);
   let apiKey = "0co6f665befca7taef26af3653b7a034";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.longitude}&lat=${position.latitude}&key=${apiKey}&units=metric`;
 

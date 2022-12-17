@@ -34,7 +34,7 @@ li {
   position: relative;
   top: -40px;
   bottom: 250px;
-  right: 40px;
+  right: 30px;
   text-align: right;
   list-style-type: none;
   line-height: 35px;
@@ -78,7 +78,7 @@ a {
   font-size: 25px;
   margin: 0;
   position: relative;
-  top: -260px;
+  top: -154px;
   float: left;
   bottom: 250px;
 }
@@ -86,8 +86,8 @@ a {
   font-size: 25px;
   margin: 0;
   position: relative;
-  top: -200px;
-  bottom: 250px;
+  top: -99px;
+  bottom: 106px;
 }
 
 .btn-group {

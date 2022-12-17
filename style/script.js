@@ -1,11 +1,6 @@
 function formatDate(today) {
   let date = today.getDate();
-  // if (date < 20) {
-  //   date = `${date}th`;
-  // }
-  // if ((date = (((1 !== date) == 21) !== date) == 31)) {
-  //   date = `${date}st`;
-  // }
+
   let hour = today.getHours();
   if (hour < 10) {
     hour = `0${hour}`;

@@ -82,6 +82,8 @@ function search(city) {
 
 function searchLocation(position) {
   let apiKey = "0co6f665befca7taef26af3653b7a034";
+  // let lon = position.coords.longitude;
+  // let lat = position.coords.latitude;
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.longitude}&lat=${position.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -121,7 +123,6 @@ function weatherCondition(response) {
 function currentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
-  console.logs(currentLocation);
 }
 
 // function convertToFahrenheit(event) {

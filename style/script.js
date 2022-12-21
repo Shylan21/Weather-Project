@@ -84,10 +84,14 @@ function searchLocation(position) {
   let apiKey = "0co6f665befca7taef26af3653b7a034";
   // let lon = position.coords.longitude;
   // let lat = position.coords.latitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?&lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(weatherCondition);
+}
+function getForecast(position) {
+  let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.longitude}&lat=${position.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
-
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-text-input").value;
@@ -117,14 +121,12 @@ function weatherCondition(response) {
   // celsiusCurrentTemp = response.data.temperature.current;
   // celsiusFeelsTemp = response.data.temperature.feels_like;
 
-  searchLocation(response.data.coordinates);
+  getForecast(response.data.coordinates);
 }
-
 function currentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
 // function convertToFahrenheit(event) {
 //   event.preventDefault();
 //   let currentTemperatureElement = document.querySelector("#it-s");
